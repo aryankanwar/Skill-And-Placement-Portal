@@ -1,0 +1,15 @@
+@font-face{
+    font-family:'Lato';
+    src:url('../../fonts/lato/Lato-Regular.ttf');
+}
+.no-margin{
+  margin: 0;
+}
+
+.no-padding{
+  padding: 0;
+}
+
+body{
+  font-family: Lato
+}
