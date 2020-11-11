@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TnP</title>
+    <link href="/stylesheets/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/style.css" rel="stylesheet">
+    <link href="/lib/angular-material/angular-material.css" rel="stylesheet">
+    <link href="/lib/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+  </head>
+  <body ng-app="tnp">
+
+    <div ng-include src="'/partials/header.html'"></div>
+
+    <div ng-include src="'/partials/sidenav.html'" class="col-md-2"></div>
+    <div class="container-fluid">
+      <div ng-view></div>
+    </div>
+
+    <div ng-include src="'/partials/footer.html'"></div>
+
+    <!-- Scripts -->
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/javascript/bootstrap/bootstrap.min.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/angular-resource/angular-resource.min.js"></script>
+    <script src="/lib/angular-route/angular-route.min.js"></script>
+    <script src="/lib/angular-cookies/angular-cookies.min.js"></script>
+    <script src="/lib/angular-aria/angular-aria.js"></script>
+    <script src="/lib/angular-animate/angular-animate.js"></script>
+    <script src="/lib/angular-material/angular-material.js"></script>
+    <script src="/lib/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="/app/app.js"></script>
+
+    <!-- CONTROLLERS -->
+    <script src="/app/controllers/authCtrl.js"></script>
+    <script src="/app/controllers/homeCtrl.js"></script>
+    <script src="/app/controllers/inviteCtrl.js"></script>
+    <script src="/app/controllers/databaseCtrl.js"></script>
+    <script src="/app/controllers/uploadCtrl.js"></script>
+    <script src="/app/controllers/companyCtrl.js"></script>
+    <script src="/app/controllers/tprCtrl.js"></script>
+    <script src="/app/controllers/placementCtrl.js"></script>
+
+    <!-- SERVICES -->
+    <script src="/app/services/authService.js"></script>
+    <script src="/app/services/identityService.js"></script>
+    <script src="/app/services/inviteService.js"></script>
+    <script src="/app/services/uploadService.js"></script>
+    <script src="/app/services/databaseService.js"></script>
+    <script src="/app/services/companyService.js"></script>
+    <script src="/app/services/tprService.js"></script>
+    <script src="/app/services/placementService.js"></script>
+
+    <!-- DIRECTIVES -->
+    <script src="/app/directives/activeLink.js"></script>
+    <script src="/app/directives/upload.js"></script>
+
+    <!-- Scripts end here -->
+  </body>
+</html>

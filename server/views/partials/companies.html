@@ -1,0 +1,49 @@
+<div class="col-md-10">
+  <div ng-if="!companies.companies">
+    <h1 class="text-center">No company visited yet.</h1><br />
+  </div>
+  <div ng-if="companies.companies">
+    <h1 class="text-center">List of visited companies</h1>
+    <div ng-repeat="company in companies.companies | orderBy:'company.deadline':true">
+      <div class="jumbotron">
+        <h3>{{$index + 1}}. {{company.name | uppercase}}</h3>
+        Package : {{company.package}} lpa<br />
+        Date of visiting : {{company.date | date:'dd-MM-yyyy'}}<br />
+        Branches : <span ng-repeat="branch in company.branches">{{branch}} </span><br />
+        Deadline : {{company.deadline | date:'dd-MM-yyyy'}}<br />
+        10th % : {{company.eligibility.tenth}}<br />
+        12th % : {{company.eligibility.twelfth}}<br />
+        B.Tech : {{company.eligibility.btech}}<br />
+        Description : {{company.description}}<br />
+        Process : {{company.process}}<br />
+        <br />
+        <div ng-switch on="identity.role()">
+          <div ng-switch-when="admin">
+            <!-- <button class="btn btn-primary" ng-click="download(company.name)"><span style="font-family:Lato; font-size:13px">Response</span></button> -->
+            <button class="btn btn-primary" ng-click="deleteCompany(company._id)"><span style="font-family:Lato; font-size:13px">Delete</span></button>
+            <!-- <button class="btn btn-primary" ng-click="editCompany(company._id)"><span style="font-family:Lato; font-size:13px">Edit</span></button> -->
+            <!-- <a class="btn btn-primary" href="/company/edit/{{company._id}}" role="button">Edit</a> -->
+          </div>
+          <div ng-switch-when="tpr">
+            <!-- <button class="btn btn-primary" ng-click="download(company.name)"><span style="font-family:Lato; font-size:13px">Response</span></button> -->
+            <button class="btn btn-primary" ng-click="deleteCompany(company._id)"><span style="font-family:Lato; font-size:13px">Delete</span></button>
+            <!-- <button class="btn btn-primary" ng-click="editCompany(company._id)"><span style="font-family:Lato; font-size:13px">Edit</span></button> -->
+            <!-- <a class="btn btn-primary" href="/company/edit/{{company._id}}" role="button">Edit</a> -->
+          </div>
+          <div ng-switch-when="user">
+            <div ng-if="company.applied">
+              <button class="btn btn-success" disabled><span style="font-family:Lato; font-size:14px">Applied</span></button>
+            </div>
+            <div ng-if="!company.applied">
+              <div ng-switch on="company.apply">
+                <button class="btn btn-info" ng-click="apply(company._id)" ng-switch-when="true"><span style="font-family:Lato; font-size:14px">Apply</span></button>
+                <button class="btn btn-danger" ng-switch-when="false" disabled><span style="font-family:Lato; font-size:14px">Not eligible</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Should have a posted by note -->
+</div>
